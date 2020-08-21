@@ -3,29 +3,31 @@
     <resize-observer @notify="handleResize"/>
     <header>
       <div class="background-carousel">
-        <div class="carousel-cell" style="background-image: url('/Hero 1.jpg');"></div>
+        <div class="carousel-cell" style="background-image: url('/Hero 1.jpg');">
+          <div class="hero-title">
+            <div class="container">
+              <h2>Wellness<br> Programs</h2>
+            </div>
+          </div>
+        </div>
         <div class="carousel-cell" style="background-image: url('/Hero 1.jpg');"></div>
       </div>
       <div class="container">
         <h1 class="web-title">SAMARA</h1>
 
-        <div class="header-title">
-          <h2>Wellness<br> Programs</h2>
+        <div v-if="background != null" class="arrows">
+          <div class="arrow arrow-left" @click="() => background.previous()">
+            <a href="#">
+              Prev
+            </a>
+          </div>
+          <div class="arrow-line">
 
-          <div v-if="background != null" class="arrows">
-            <div class="arrow arrow-left" @click="() => background.previous()">
-              <a href="#">
-                Prev
-              </a>
-            </div>
-            <div class="arrow-line">
-
-            </div>
-            <div class="arrow arrow-right" @click="() => background.next()">
-              <a href="#">
-                Next
-              </a>
-            </div>
+          </div>
+          <div class="arrow arrow-right" @click="() => background.next()">
+            <a href="#">
+              Next
+            </a>
           </div>
         </div>
       </div>
@@ -43,7 +45,8 @@
         </div>
 
         <div class="background">
-          <div class="background-image vs-div vs-opacity-work" data-speed="-.2" style="background-image: url('/Brand Story 1.jpg')"></div>
+          <div class="background-image vs-div vs-opacity-work" data-speed="-.2"
+               style="background-image: url('/Brand Story 1.jpg')"></div>
         </div>
       </div>
 
@@ -61,7 +64,8 @@
         </div>
 
         <div class="background">
-          <div class="background-image vs-div" data-speed="-.2" style="background-image: url('/Brand Story 2.jpg')"></div>
+          <div class="background-image vs-div" data-speed="-.2"
+               style="background-image: url('/Brand Story 2.jpg')"></div>
         </div>
       </div>
     </section>
@@ -180,7 +184,7 @@ export default {
     this.background.on('scroll', () => {
       this.background.slides.forEach((slide, i) => {
         let image = slides[i];
-        let x = (slide.target + this.background.x) * -1/3;
+        let x = (slide.target + this.background.x) * -1 / 3;
         image.style.backgroundPosition = x + 'px';
       });
     });
@@ -281,20 +285,9 @@ footer .background-image {
   letter-spacing: 8px;
 }
 
-.instagram-container {
-  padding-top: 300px;
-  padding-bottom: 200px;
-}
-
 header {
   height: 100vh;
   position: relative;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  height: 100%;
 }
 
 .web-title {
@@ -313,28 +306,6 @@ header {
   position: absolute;
   top: 60%;
   transform: translateY(-50%);
-}
-
-.header-title > h2 {
-  font-weight: 400;
-  font-family: 'Domaine Sans', sans-serif;
-  letter-spacing: 16px;
-  text-transform: uppercase;
-  font-size: 84px;
-  margin-bottom: 32px;
-}
-
-.arrows {
-  margin: 0 -32px 0 -32px;
-  width: 320px;
-  display: flex;
-}
-
-.arrow-line {
-  height: 1px;
-  background-color: white;
-  width: 100%;
-  margin-top: 40px;
 }
 
 .nav-menu {
@@ -401,86 +372,11 @@ section {
   padding-top: 90px;
 }
 
-.section-title {
-  font-weight: 300;
-  font-family: "Domaine Sans", sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 48px;
-  letter-spacing: 12px;
-  line-height: 88px;
-}
-
-.brand {
-  display: flex;
-}
-
-.brand-1 {
-  padding-top: 200px;
-}
-
-.brand-1 > .description {
-  flex: 1;
-  text-align: right;
-  padding: 100px 44% 0 0;
-  text-transform: uppercase;
-}
-
-.brand > .description > h3 {
-  font-family: "Domaine Sans", sans-serif;
-  letter-spacing: 12px;
-  font-size: 48px;
-  font-weight: 300;
-  padding-top: 64px;
-  line-height: 80px;
-}
-
-.brand-1 > .background {
-
-  position: absolute;
-  right: 0;
-
-  width: 40%;
-  height: 900px;
-
-  overflow: hidden;
-}
-
 .brand-1 .background-image {
   width: 100%;
   height: 100%;
 
   background-size: cover;
-}
-
-.brand-2 {
-  padding-top: 150px;
-
-  position: relative;
-}
-
-.brand-2 > .description {
-  text-align: right;
-  font-family: 'Houschka Pro', sans-serif;
-  font-size: 18px;
-  letter-spacing: 2px;
-  line-height: 42px;
-  color: #4c463c;
-
-  padding-right: 60%;
-  padding-top: 64px;
-}
-
-.brand-2 > .background {
-  z-index: 99;
-
-  width: 40%;
-  height: 600px;
-
-  position: absolute;
-  right: 10%;
-
-  overflow: hidden;
 }
 
 .brand-2 .background-image {
