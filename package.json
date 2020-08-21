@@ -1,0 +1,27 @@
+{
+  "name": "samara",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "dom-classes": "^1.0.0",
+    "dom-create-element": "^1.0.2",
+    "dom-events": "^0.1.1",
+    "flickity": "^2.2.1",
+    "normalize-scss": "^7.0.1",
+    "nuxt": "^2.14.0",
+    "prefix": "^1.0.0",
+    "virtual-scroll": "^1.5.2",
+    "vue-resize": "^0.5.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.3",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3"
+  }
+}

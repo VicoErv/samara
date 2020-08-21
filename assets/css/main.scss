@@ -1,0 +1,98 @@
+@import '~normalize-scss';
+@import '~vue-resize/dist/vue-resize';
+@import '~flickity/dist/flickity';
+
+@include normalize();
+
+$font-domaine: 'Domaine Sans', sans-serif;
+$font-houschka: 'Houschka Pro', sans-serif;
+
+@font-face {
+  font-family: 'Domaine Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('~assets/fonts/DomaineSansDisplay-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Houschka Pro';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('~assets/fonts/Houschka Pro Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Houschka Pro';
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url('~assets/fonts/Houschka Pro Light.otf') format('opentype');
+}
+
+footer {
+  color: #fff;
+}
+
+.about-title {
+  font-family: $font-domaine;
+  text-transform: uppercase;
+  letter-spacing: 4pt;
+  font-size: 18pt;
+}
+
+footer .about {
+  font-family: $font-houschka;
+  letter-spacing: 1pt;
+  line-height: 24pt;
+  font-size: 14pt;
+  max-width: 20vw;
+}
+
+.footer-nav {
+  font-family: $font-domaine;
+  text-transform: uppercase;
+  letter-spacing: 4pt;
+  line-height: 64pt;
+  padding: 150px 0 150px 0;
+
+  .next-title {
+    font-size: 72pt;
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+
+.float-right {
+  float: right;
+}
+
+.background-carousel {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .carousel-cell {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.arrow {
+  padding: 32px;
+  text-transform: uppercase;
+  display: inline-block;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
