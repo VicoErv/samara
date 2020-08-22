@@ -5,14 +5,23 @@
 @include normalize();
 
 $font-domaine: 'Domaine Sans', sans-serif;
+$font-domaine-test: 'Domaine Sans Text Test', sans-serif;
 $font-houschka: 'Houschka Pro', sans-serif;
 
 @font-face {
   font-family: 'Domaine Sans';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-display: swap;
   src: url('~assets/fonts/DomaineSansDisplay-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Domaine Sans Text Test';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('~assets/fonts/DomaineSansTextTest-Regular.otf') format('opentype');
 }
 
 @font-face {
@@ -112,10 +121,12 @@ footer {
 }
 
 .about-title {
-  font-family: $font-domaine;
+  font-family: $font-domaine-test;
   text-transform: uppercase;
-  letter-spacing: 4pt;
-  font-size: 18pt;
+  letter-spacing: 4px;
+  font-size: 16pt;
+
+  padding: 16px 0 16px 0;
 }
 
 footer .about {
@@ -124,18 +135,6 @@ footer .about {
   line-height: 24pt;
   font-size: 14pt;
   max-width: 20vw;
-}
-
-.footer-nav {
-  font-family: $font-domaine;
-  text-transform: uppercase;
-  letter-spacing: 4pt;
-  line-height: 64pt;
-  padding: 150px 0 150px 0;
-
-  .next-title {
-    font-size: 72pt;
-  }
 }
 
 .position-relative {
@@ -257,6 +256,10 @@ footer .about {
   height: 100%;
 }
 
+.py-6 {
+  padding: 60px 0 60px 0;
+}
+
 .footer-text {
   display: flex;
   justify-content: space-between;
@@ -267,6 +270,24 @@ footer .about {
     flex: 0 0 100%;
     display: flex;
     justify-content: flex-end;
+
+    .footer-nav {
+      padding: 10% 0 10% 0;
+      text-transform: uppercase;
+
+      letter-spacing: 6pt;
+
+      .nav-link {
+        font-family: $font-houschka;
+        font-size: 14pt;
+      }
+
+      .nav-title {
+        font-family: $font-domaine;
+        font-size: 48pt;
+        padding: 32px 0 48px 0;
+      }
+    }
   }
 
   .footer-item-2 {
