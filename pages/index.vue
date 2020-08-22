@@ -12,7 +12,12 @@
           </div>
         </div>
         <div class="carousel-cell">
-          <div class="background-image" style="background-image: url('/Hero 1.jpg');"></div>
+          <div class="background-image" style="background-image: url('/Hero 2.jpg');"></div>
+          <div class="hero-title">
+            <div class="container">
+              <h2>Wellness<br> Programs</h2>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container">
@@ -170,7 +175,7 @@ export default {
     this.background = new Flickity(backgroundEl, {
       accessibility: true,
       prevNextButtons: false,
-      pageDots: true,
+      pageDots: false,
       setGallerySize: false,
       arrowShape: {
         x0: 10,
@@ -246,26 +251,6 @@ footer .background-image {
   background-size: cover;
   background-position: center center;
   opacity: .7;
-}
-
-.main-carousel {
-  margin-top: 90px;
-}
-
-.main-carousel:focus {
-  outline: none;
-}
-
-.main-carousel .carousel-cell {
-  width: 25vw;
-
-  margin-right: 30px;
-}
-
-.main-carousel .carousel-cell > .background-image {
-  width: 100%;
-  height: 50vh;
-  background-size: cover;
 }
 
 .instagram {
