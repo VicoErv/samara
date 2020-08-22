@@ -109,11 +109,11 @@
       <div class="container h-full py-6">
         <div class="footer-text container">
           <div class="footer-items footer-item-1">
-            <div class="footer-nav">
-              <div class="nav-link">Next</div>
-              <div class="nav-title">Wellness</div>
-              <img src="/Next%20Arrow.svg" alt="">
-            </div>
+              <a href="#" class="footer-nav">
+                <div class="nav-link">Next</div>
+                <div class="nav-title">Wellness</div>
+                <img src="/Next%20Arrow.svg" alt="">
+              </a>
           </div>
           <div class="footer-items footer-item-2">
             <div class="footer-item about">
@@ -127,8 +127,8 @@
               </p>
 
               <p class="about-contact">
-                P: +6282 9839 820<br>
-                E: Samaraspa@gmail.com
+                P: <a href="#" class="underline">+6282 9839 820</a><br>
+                E: <a href="#" class="underline">Samaraspa@gmail.com</a>
               </p>
 
               <p class="about-copy">
@@ -136,7 +136,15 @@
               </p>
             </div>
           </div>
-          <div class="footer-items footer-item-3">ig fb</div>
+          <div class="footer-items footer-item-3">
+            <a href="#" class="underline">
+              ig.
+            </a>
+
+            <a href="#" class="underline">
+              fb.
+            </a>
+          </div>
         </div>
       </div>
     </footer>

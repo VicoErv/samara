@@ -272,6 +272,9 @@ footer .about {
     justify-content: flex-end;
 
     .footer-nav {
+      text-decoration: none;
+      color: white;
+
       padding: 10% 0 10% 0;
       text-transform: uppercase;
 
@@ -285,17 +288,58 @@ footer .about {
       .nav-title {
         font-family: $font-domaine;
         font-size: 48pt;
-        padding: 32px 0 48px 0;
+        margin: 32px 0 48px 0;
+
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav-title:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 0;
+        bottom: 0px;
+        background: #fff;
+        height: 2px;
+        transition-property: width;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+      }
+
+      .nav-title:hover:after,
+      .nav-title:focus:after,
+      .nav-title:active:after {
+        left: 0;
+        right: auto;
+        width: 100%;
       }
     }
   }
 
   .footer-item-2 {
     align-self: flex-end;
+
+    .footer-item {
+      .about-contact {
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
   }
 
   .footer-item-3 {
+    font-size: 16pt;
     align-self: flex-end;
+    margin: 0 -32px 0 -32px;
+
+    a {
+      margin: 0 32px 0 32px;
+      text-decoration: none;
+      color: white;
+    }
   }
 }
 
@@ -362,3 +406,29 @@ footer .about {
   }
 }
 
+.underline {
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+
+.underline:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 0;
+  bottom: -4px;
+  background: #fff;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.underline:hover:after,
+.underline:focus:after,
+.underline:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
