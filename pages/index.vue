@@ -3,14 +3,17 @@
     <resize-observer @notify="handleResize"/>
     <header>
       <div class="background-carousel">
-        <div class="carousel-cell" style="background-image: url('/Hero 1.jpg');">
+        <div class="carousel-cell">
+          <div class="background-image" style="background-image: url('/Hero 1.jpg');"></div>
           <div class="hero-title">
             <div class="container">
               <h2>Wellness<br> Programs</h2>
             </div>
           </div>
         </div>
-        <div class="carousel-cell" style="background-image: url('/Hero 1.jpg');"></div>
+        <div class="carousel-cell">
+          <div class="background-image" style="background-image: url('/Hero 1.jpg');"></div>
+        </div>
       </div>
       <div class="container">
         <h1 class="web-title">SAMARA</h1>
@@ -98,37 +101,36 @@
 
     <footer>
       <div class="background-image vs-div" data-speed="-.6" style="background-image: url('/Footer.jpg')"></div>
-      <div class="footer-nav">
-        <div class="container position-relative">
-          <div class="float-right vs-div vs-opacity-start" data-speed="-.2">
-            <div class="next-label">Next</div>
-            <div class="next-title">
-              Wellness
+      <div class="container h-full">
+        <div class="footer-text container">
+          <div class="footer-items footer-item-1">
+            <div>
+              <div>Next</div>
+              <div>Wellness</div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="footer-text" style="bottom: 0; position: absolute; width: 100%">
-        <div class="container">
-          <div class="about columns vs-div vs-opacity-title vs-div" data-speed="-.2">
-            <div class="about-title">
-              Samara Spa
+          <div class="footer-items footer-item-2">
+            <div class="footer-item about columns">
+              <div class="about-title">
+                Samara Spa
+              </div>
+
+              <p class="about-description">
+                Et quidem Arcesilas tuus, etsi fuit in disserendo pertinacior, tamen noster fuit;
+                Hoc est non dividere.
+              </p>
+
+              <p class="about-contact">
+                P: +6282 9839 820<br>
+                E: Samaraspa@gmail.com
+              </p>
+
+              <p class="about-copy">
+                &copy; 2020 SamaraSpa. Website by Fleava
+              </p>
             </div>
-
-            <p class="about-description">
-              Et quidem Arcesilas tuus, etsi fuit in disserendo pertinacior, tamen noster fuit;
-              Hoc est non dividere.
-            </p>
-
-            <p class="about-contact">
-              P: +6282 9839 820<br>
-              E: Samaraspa@gmail.com
-            </p>
-
-            <p class="about-copy">
-              &copy; 2020 SamaraSpa. Website by Fleava
-            </p>
           </div>
+          <div class="footer-items footer-item-3">ig fb</div>
         </div>
       </div>
     </footer>
@@ -183,7 +185,7 @@ export default {
 
     this.background.on('scroll', () => {
       this.background.slides.forEach((slide, i) => {
-        let image = slides[i];
+        let image = slides[i].querySelector('.background-image');
         let x = (slide.target + this.background.x) * -1 / 3;
         image.style.backgroundPosition = x + 'px';
       });
@@ -222,6 +224,7 @@ body.y-scroll .q_smooth {
 }
 
 footer {
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -230,6 +233,7 @@ footer {
 }
 
 footer .background-image {
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -288,24 +292,6 @@ footer .background-image {
 header {
   height: 100vh;
   position: relative;
-}
-
-.web-title {
-  margin-top: 0;
-  font-weight: normal;
-  font-family: 'Domaine Sans', sans-serif;
-  letter-spacing: 8px;
-  text-align: center;
-
-  padding-top: 64px;
-  color: #fff;
-}
-
-.header-title {
-  color: #fff;
-  position: absolute;
-  top: 60%;
-  transform: translateY(-50%);
 }
 
 .nav-menu {
