@@ -3,16 +3,8 @@
     <resize-observer @notify="handleResize"/>
     <header>
       <div class="background-carousel">
-        <div class="carousel-cell">
-          <div class="background-image" style="background-image: url('/Hero 1.jpg');"></div>
-          <div class="hero-title">
-            <div class="container">
-              <h2>Wellness<br> Programs</h2>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-cell">
-          <div class="background-image" style="background-image: url('/Hero 2.jpg');"></div>
+        <div v-for="(bg, i) of backgrounds" :key="i" :data-id="i" class="carousel-cell">
+          <div class="background-image" :style="`background-image: url('${bg.image}');`"></div>
           <div class="hero-title">
             <div class="container">
               <h2>Wellness<br> Programs</h2>
@@ -38,6 +30,21 @@
             </a>
           </div>
         </div>
+      </div>
+
+      <div class="hero-bullets">
+        <div v-for="i in backgrounds.length" :key="i" :class="'bullet-item' + (backgroundSelectedId === i ? ' active' : '')">
+              <a href="#" class="bullet" @click="selectBackground(i - 1)"></a>
+
+              <transition name="fade">
+              <span v-if="backgroundSelectedId === i"><i class="line"></i> {{ i }}</span>
+              </transition>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="#">ig.</a>
+        <a href="#">fb.</a>
       </div>
     </header>
 
@@ -106,14 +113,14 @@
 
     <footer>
       <div class="background-image vs-div" data-speed="-.6" style="background-image: url('/Footer.jpg')"></div>
-      <div class="container h-full py-6">
-        <div class="footer-text container">
+      <div class="container h-full">
+        <div class="footer-text">
           <div class="footer-items footer-item-1">
-              <a href="#" class="footer-nav">
-                <div class="nav-link">Next</div>
-                <div class="nav-title">Wellness</div>
-                <img src="/Next%20Arrow.svg" alt="">
-              </a>
+            <a href="#" class="footer-nav">
+              <div class="nav-link">Next</div>
+              <div class="nav-title">Wellness</div>
+              <img src="/Next%20Arrow.svg" alt="">
+            </a>
           </div>
           <div class="footer-items footer-item-2">
             <div class="footer-item about">
@@ -160,13 +167,36 @@ export default {
   components: {ResizeObserver},
   data() {
     return {
-      background: null
+      background: null,
+      backgroundSelectedId: 1,
+      backgrounds: [
+        {
+          image: '/Hero%201.jpg',
+          title: 'Wellness Programs'
+        },
+        {
+          image: '/Hero%202.jpg',
+          title: 'Wellness Programs'
+        }
+      ]
     }
   },
   methods: {
     handleResize() {
       qSmooth.resize();
     },
+
+    onBackgroundSelect() {
+      let selected = document.querySelector('.background-carousel .is-selected');
+
+      let id = selected.getAttribute('data-id');
+
+      this.backgroundSelectedId = parseInt(id) + 1;
+    },
+
+    selectBackground(index) {
+      this.background.select(index);
+    }
   },
   mounted() {
     let el = document.querySelector('.main-carousel');
@@ -194,6 +224,8 @@ export default {
         x3: 15
       }
     });
+
+    this.background.on('select', this.onBackgroundSelect.bind(this));
 
     let slides = document.querySelectorAll('.background-carousel .carousel-cell');
 
@@ -311,5 +343,12 @@ section {
   font-family: 'Houschka Pro', sans-serif;
   letter-spacing: 8px;
   font-size: 18px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

@@ -91,9 +91,9 @@ $font-houschka: 'Houschka Pro', sans-serif;
       h2 {
         font-weight: 400;
         font-family: $font-domaine;
-        letter-spacing: 16px;
+        letter-spacing: 12pt;
         text-transform: uppercase;
-        font-size: 84px;
+        font-size: 16pt;
         margin-bottom: 32px;
       }
     }
@@ -134,7 +134,7 @@ footer .about {
   letter-spacing: 1pt;
   line-height: 24pt;
   font-size: 14pt;
-  max-width: 20vw;
+  width: 50%;
 }
 
 .position-relative {
@@ -174,9 +174,9 @@ footer .about {
   font-family: $font-domaine;
   text-transform: uppercase;
   text-align: center;
-  font-size: 48px;
+  font-size: 18pt;
   letter-spacing: 12px;
-  line-height: 88px;
+  line-height: 32pt;
 
   padding: 64px 0 64px 0;
 }
@@ -188,30 +188,28 @@ footer .about {
 
 .brand-1 {
   padding: 32px 0 32px 0;
+  flex-direction: column-reverse;
 
   .description {
     flex: 1;
-    padding: 100px 40% 0 0;
     text-transform: uppercase;
 
     h3 {
       font-family: "Domaine Sans", sans-serif;
       letter-spacing: 12px;
-      font-size: 48px;
+      font-size: 16pt;
       font-weight: 300;
-      line-height: 80px;
+      line-height: 32pt;
       padding: 64px 0 64px 0;
       margin: 0;
     }
   }
 
   .background {
-    position: absolute;
+    position: relative;
+    width: 100%;
+    height: 500px;
     right: 0;
-
-    width: 40%;
-    height: 900px;
-
     overflow: hidden;
   }
 }
@@ -219,6 +217,7 @@ footer .about {
 
 .brand-2 {
   position: relative;
+  flex-direction: column;
 
   .description {
     font-family: 'Houschka Pro', sans-serif;
@@ -227,17 +226,17 @@ footer .about {
     line-height: 42px;
     color: #4c463c;
 
-    padding: 64px 60% 64px 0;
+    padding: 0;
   }
 
   .background {
+    position: relative;
+    right: 0;
+    width: 100%;
+
     z-index: 99;
 
-    width: 45%;
     height: 650px;
-
-    position: absolute;
-    right: 10%;
 
     overflow: hidden;
   }
@@ -256,11 +255,8 @@ footer .about {
   height: 100%;
 }
 
-.py-6 {
-  padding: 60px 0 60px 0;
-}
-
 .footer-text {
+  padding: 60px 0 60px 0;
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -269,13 +265,13 @@ footer .about {
   .footer-item-1 {
     flex: 0 0 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 
     .footer-nav {
       text-decoration: none;
       color: white;
 
-      padding: 10% 0 10% 0;
+      padding: 30px 0 30px 0;
       text-transform: uppercase;
 
       letter-spacing: 6pt;
@@ -321,6 +317,8 @@ footer .about {
     align-self: flex-end;
 
     .footer-item {
+      width: 100%;
+
       .about-contact {
         a {
           text-decoration: none;
@@ -333,10 +331,10 @@ footer .about {
   .footer-item-3 {
     font-size: 16pt;
     align-self: flex-end;
-    margin: 0 -32px 0 -32px;
+    margin: 0 -10px 0 -10px;
 
     a {
-      margin: 0 32px 0 32px;
+      margin: 0 10px 0 10px;
       text-decoration: none;
       color: white;
     }
@@ -363,44 +361,82 @@ footer .about {
   background-size: cover;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (min-width: 576px) {
+  .background-carousel .carousel-cell .hero-title h2 {
+    font-size: 32pt;
+  }
+
+  .section-title, .brand-1 .description h3 {
+    font-size: 24pt;
+    line-height: 48pt;
+  }
+
   .brand-1 {
-    flex-direction: column-reverse;
+    .description {
+      padding: 30px 0 0 0;
+
+      h3 {
+        padding: 30px 0 0 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .background-carousel .carousel-cell .hero-title h2 {
+    font-size: 48pt;
+  }
+
+  .section-title, .brand-1 .description h3 {
+    font-size: 32pt;
+    line-height: 64pt;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .background-carousel .carousel-cell .hero-title h2 {
+    font-size: 64pt;
+  }
+
+  .brand-1 {
+    flex-direction: column;
 
     .description {
-      padding: 100px 0 0 0;
+      padding: 100px 45% 0 0;
     }
 
     .background {
-      position: relative;
-      width: 100%;
-      height: 500px;
+      position: absolute;
+      width: 40%;
+      height: 900px;
     }
   }
 
   .brand-2 {
-    flex-direction: column;
-    padding-top: 0;
-
     .description {
-      padding: 0;
+      padding: 64px 60% 64px 0;
     }
 
     .background {
-      position: relative;
-      right: 0;
-      width: 100%;
+      width: 45%;
+      position: absolute;
+      right: 10%;
     }
+  }
+
+  .section-title, .brand-1 .description h3 {
+    font-size: 32pt;
+    line-height: 64pt;
   }
 
   .footer-text {
     .footer-item-1 {
-      justify-content: center;
+      justify-content: flex-end;
     }
 
     .footer-item-2 {
       .footer-item {
-        max-width: 100%;
+        width: 50%;
       }
     }
   }
@@ -432,3 +468,55 @@ footer .about {
   right: auto;
   width: 100%;
 }
+
+.hero-bullets {
+  color: white;
+  position: absolute;
+  transform: rotate(-90deg);
+  margin: -5px 0 -5px 0;
+
+  bottom: 10%;
+  left: 10%;
+
+  .bullet-item {
+    padding: 5px 0 5px 0;
+
+    .line {
+      width: 20px;
+      height: 1px;
+      background-color: white;
+      display: inline-block;
+      margin: 4px 0 4px 0;
+    }
+
+    .bullet {
+      display: inline-block;
+
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #beb8a9;
+    }
+  }
+
+  .active .bullet {
+    background-color: #fff;
+  }
+}
+.socials {
+  font-family: $font-houschka;
+
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+
+  margin: 0 -10px 0 -10px;
+
+  a {
+    margin: 0 10px 0 10px;
+
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
