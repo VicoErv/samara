@@ -578,7 +578,7 @@ footer .about {
 }
 
 :root {
-  --color-primary: #18181A;
+  --color-primary: #fff;
   --color-secondary: #75757C;
   --color-dark: #364C62;
   --color-light: #F5F5F5;
@@ -675,6 +675,9 @@ footer .about {
 // ================================
 
 .menu {
+  font-family: $font-domaine;
+  text-transform: uppercase;
+
   position: relative;
   text-align: center;
   z-index: 1;
@@ -821,7 +824,7 @@ footer .about {
     transform: translate(0, 0);
 
     &:hover {
-      color: var(--color-light);
+      color: var(--color-dark);
       transition-delay: 0s;
     }
   }

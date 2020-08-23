@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="`menu-container ${(show ? 'active' : '')}`">
+    <div :class="`menu-container ${(top ? 'top' : '')} ${(show ? 'active' : '')}`" ref="menu">
       <nav id="main-navigation" class="nav-main">
         <ul class="menu">
           <li class="menu__item">
@@ -8,34 +8,6 @@
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#0">About</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#0">Clients</a>
-            <ul class="submenu">
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Burger King</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Southwest Airlines</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Levi Strauss</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#0">Services</a>
-            <ul class="submenu">
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Print Design</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Web Design</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Mobile App Development</a>
-              </li>
-            </ul>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#0">Contact</a>
@@ -48,7 +20,7 @@
       <Nuxt/>
     </div>
 
-    <div class="nav-menu">
+    <div class="nav-menu" @click="show = true">
       <span class="line"></span>
       <span class="line"></span>
       <span class="text">Menu</span>
@@ -60,7 +32,21 @@
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      top: false
+    }
+  },
+  watch: {
+    show(val) {
+      if (val) {
+        this.top = true;
+
+        return;
+      }
+
+      setTimeout(() => {
+        this.top = false;
+      }, 300);
     }
   }
 }
@@ -68,7 +54,6 @@ export default {
 
 <style>
 .menu-container {
-  z-index: 999;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -77,10 +62,14 @@ export default {
   overflow: hidden;
 }
 
+.menu-container.top {
+  z-index: 999;
+}
+
 .nav-menu {
   position: fixed;
   right: 5%;
-  z-index: 9999;
+  z-index: 998;
   top: 50%;
   margin-top: -30px;
   cursor: pointer;
