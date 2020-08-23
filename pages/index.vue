@@ -167,7 +167,7 @@
 import Flickity from 'flickity-imagesloaded';
 import Parallax from "../plugins/parallax";
 import {ResizeObserver} from 'vue-resize';
-import { mapState } from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   head() {
@@ -221,11 +221,14 @@ export default {
     onBackgroundScroll() {
       let slides = document.querySelectorAll('.background-carousel .carousel-cell');
 
-        this.background.slides.forEach((slide, i) => {
-          let image = slides[i].querySelector('.background-image');
-          let x = (slide.target + this.background.x) * -1 / 3;
-          image.style.backgroundPosition = x + 'px';
-        });
+      this.background.slides.forEach((slide, i) => {
+        let image = slides[i].querySelector('.background-image');
+        let x = (slide.target + this.background.x) * -1 / 3;
+        image.style.backgroundPosition = x + 'px';
+      });
+    },
+    isMobile() {
+      return !!(navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i))
     }
   },
   async mounted() {
@@ -249,7 +252,7 @@ export default {
 
     this.background.on('scroll', this.onBackgroundScroll);
 
-    if (document.getElementsByClassName('q_smooth').length) {
+    if (!this.isMobile() && document.getElementsByClassName('q_smooth').length) {
       const qSmooth = new Parallax({
         native: true,
         section: document.querySelector('.q_smooth'),
