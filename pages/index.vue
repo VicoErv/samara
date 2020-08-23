@@ -278,7 +278,7 @@ body.y-scroll .q_smooth {
 }
 
 footer {
-  z-index: -1;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
