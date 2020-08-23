@@ -307,7 +307,7 @@ footer .about {
 
       .nav-title {
         font-family: $font-domaine;
-        font-size: 48pt;
+        font-size: 24pt;
         margin: 32px 0 48px 0;
 
         position: relative;
@@ -353,6 +353,8 @@ footer .about {
   }
 
   .footer-item-3 {
+    font-family: $font-houschka;
+
     font-size: 16pt;
     align-self: flex-end;
     margin: 0 -10px 0 -10px;
@@ -387,6 +389,8 @@ footer .about {
   position: relative;
 
   .next-indicator {
+    display: none;
+
     transform: translate(50%, -50%);
     top: 50%;
     right: 15%;
@@ -427,6 +431,10 @@ footer .about {
     }
   }
 
+  .footer-text .footer-item-1 .footer-nav .nav-title {
+    font-size: 48pt;
+  }
+
   .instagram {
     padding: 30px 0 30px 0;
 
@@ -437,6 +445,12 @@ footer .about {
     span {
       font-size: 24pt;
       margin-left: 30px;
+    }
+  }
+
+  .instagram-carousel-container {
+    .next-indicator {
+      display: block;
     }
   }
 }
@@ -534,6 +548,10 @@ footer .about {
   .section-title, .brand-1 .description h3 {
     font-size: 32pt;
     line-height: 64pt;
+  }
+
+  .footer-text .footer-item-1 .footer-nav .nav-title {
+    font-size: 64pt;
   }
 }
 
@@ -688,6 +706,7 @@ footer .about {
 }
 
 .socials {
+  font-size: 16pt;
   font-family: $font-houschka;
 
   position: absolute;
