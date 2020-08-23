@@ -33,12 +33,13 @@
       </div>
 
       <div class="hero-bullets">
-        <div v-for="i in backgrounds.length" :key="i" :class="'bullet-item' + (backgroundSelectedId === i ? ' active' : '')">
-              <a href="#" class="bullet" @click="selectBackground(i - 1)"></a>
+        <div v-for="i in backgrounds.length" :key="i"
+             :class="'bullet-item' + (backgroundSelectedId === i ? ' active' : '')">
+          <a href="#" class="bullet" @click="selectBackground(i - 1)"></a>
 
-              <transition name="fade">
-              <span v-if="backgroundSelectedId === i"><i class="line"></i> {{ i }}</span>
-              </transition>
+          <transition name="fade">
+            <span v-if="backgroundSelectedId === i"><i class="line"></i> {{ i }}</span>
+          </transition>
         </div>
       </div>
 
@@ -86,26 +87,36 @@
     </section>
 
     <section>
-      <div class="container instagram-container">
-        <div class="connect">
-          Connect With Us
-        </div>
-
-        <div class="instagram">
-          <img src="/instagram-brands.svg" class="logo" alt=""> <span>samaraspa</span>
-        </div>
-
-        <div class="main-carousel">
-          <div class="carousel-cell">
-            <img src="/Instagram%201.jpg" alt="" :style="`width: 100%`" @load="matchHeight($event)">
+      <div class="instagram-container">
+        <div class="container">
+          <div class="connect">
+            Connect With Us
           </div>
 
-          <div class="carousel-cell">
-            <img src="/Instagram%202.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
+          <div class="instagram">
+            <img src="/instagram-brands.svg" class="logo" alt=""> <span>samaraspa</span>
           </div>
+        </div>
 
-          <div class="carousel-cell">
-            <img src="/Instagram%203.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
+        <div class="instagram-carousel-container">
+          <div class="container">
+            <div class="main-carousel">
+              <div class="carousel-cell">
+                <img src="/Instagram%201.jpg" alt="" :style="`width: 100%`" @load="matchHeight($event)">
+              </div>
+
+              <div class="carousel-cell">
+                <img src="/Instagram%202.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
+              </div>
+
+              <div class="carousel-cell">
+                <img src="/Instagram%203.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
+              </div>
+            </div>
+
+            <div class="next-indicator">
+              <img src="/Next%20Arrow.svg" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -207,7 +218,8 @@ export default {
   },
   mounted() {
     let el = document.querySelector('.main-carousel');
-    const flickity = new Flickity(el, {
+    let flickity = null;
+    flickity = new Flickity(el, {
       cellAlign: 'left',
       contain: true,
       freeScroll: true,
@@ -334,7 +346,9 @@ section {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
   opacity: 0;
 }
 </style>
