@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <resize-observer @notify="handleResize"/>
     <header>
       <div class="background-carousel">

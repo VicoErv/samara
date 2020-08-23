@@ -40,6 +40,10 @@ $font-houschka: 'Houschka Pro', sans-serif;
   src: url('~assets/fonts/Houschka Pro Light.otf') format('opentype');
 }
 
+.wrapper {
+  overflow: hidden;
+}
+
 .web-title {
   margin-top: 0;
   font-weight: normal;
