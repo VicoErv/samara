@@ -19,11 +19,11 @@
     "prefix": "^1.0.0",
     "virtual-scroll": "^1.5.2",
     "vue-match-heights": "^0.1.1",
-    "vue-resize": "^0.5.0"
+    "vue-resize": "^0.5.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.3",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.3"
   }
 }
