@@ -193,6 +193,7 @@ footer .about {
   .description {
     flex: 1;
     text-transform: uppercase;
+    padding: 15px 0 15px 0;
 
     h3 {
       font-family: "Domaine Sans", sans-serif;
@@ -200,7 +201,7 @@ footer .about {
       font-size: 16pt;
       font-weight: 300;
       line-height: 32pt;
-      padding: 64px 0 64px 0;
+      padding: 15px 0 15px 0;
       margin: 0;
     }
   }
@@ -242,8 +243,31 @@ footer .about {
   }
 }
 
+.connect {
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-family: 'Houschka Pro', sans-serif;
+
+  letter-spacing: 8px;
+}
+
+.instagram {
+  padding: 30px 0 30px 0;
+
+  .logo {
+    width: 12px;
+  }
+
+  span {
+    font-size: 10pt;
+    text-transform: uppercase;
+    font-family: $font-domaine;
+    letter-spacing: 10pt;
+    margin-left: 10px;
+  }
+}
+
 .instagram-container {
-  padding-top: 200px;
   padding-bottom: 200px;
 
   .flickity-viewport {
@@ -342,17 +366,15 @@ footer .about {
 }
 
 .main-carousel {
-  margin-top: 90px;
-
   &:focus {
     outline: none;
   }
 }
 
 .main-carousel .carousel-cell {
-  width: 500px;
+  width: 100vw;
 
-  margin-right: 30px;
+  padding-right: 30px;
 }
 
 .main-carousel .carousel-cell > .background-image {
@@ -364,6 +386,10 @@ footer .about {
 @media screen and (min-width: 576px) {
   .background-carousel .carousel-cell .hero-title h2 {
     font-size: 32pt;
+  }
+
+  .main-carousel .carousel-cell {
+    width: 50vw;
   }
 
   .section-title, .brand-1 .description h3 {
@@ -439,6 +465,20 @@ footer .about {
         width: 50%;
       }
     }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .brand-1 {
+    flex-direction: column;
+
+    .description {
+      padding: 100px calc(50% - 5vw) 0 0;
+    }
+  }
+
+  .main-carousel .carousel-cell {
+    width: 27vw;
   }
 }
 

@@ -92,20 +92,20 @@
         </div>
 
         <div class="instagram">
-          <img src="/instagram-brands.svg" alt="" width="32"> <span>samaraspa</span>
+          <img src="/instagram-brands.svg" class="logo" alt=""> <span>samaraspa</span>
         </div>
 
         <div class="main-carousel">
           <div class="carousel-cell">
-            <div class="background-image" style="background-image: url('/Instagram 1.jpg')"></div>
+            <img src="/Instagram%201.jpg" alt="" :style="`width: 100%`" @load="matchHeight($event)">
           </div>
 
           <div class="carousel-cell">
-            <div class="background-image" style="background-image: url('/Instagram 2.jpg')"></div>
+            <img src="/Instagram%202.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
           </div>
 
           <div class="carousel-cell">
-            <div class="background-image" style="background-image: url('/Instagram 3.jpg')"></div>
+            <img src="/Instagram%203.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
           </div>
         </div>
       </div>
@@ -159,7 +159,7 @@
 </template>
 
 <script>
-import Flickity from 'flickity';
+import Flickity from 'flickity-imagesloaded';
 import Parallax from "../plugins/parallax";
 import {ResizeObserver} from 'vue-resize';
 
@@ -178,7 +178,8 @@ export default {
           image: '/Hero%202.jpg',
           title: 'Wellness Programs'
         }
-      ]
+      ],
+      igHeight: 0,
     }
   },
   methods: {
@@ -196,6 +197,12 @@ export default {
 
     selectBackground(index) {
       this.background.select(index);
+    },
+
+    matchHeight(e) {
+      if (this.igHeight === 0) {
+        this.igHeight = e.target.height;
+      }
     }
   },
   mounted() {
@@ -207,6 +214,7 @@ export default {
       prevNextButtons: false,
       pageDots: false,
       freeScrollFriction: 0.03,
+      imagesLoaded: true
     });
 
     let backgroundEl = document.querySelector('.background-carousel');
@@ -291,28 +299,6 @@ footer .background-image {
   background-size: cover;
   background-position: center center;
   opacity: .7;
-}
-
-.instagram {
-  text-transform: uppercase;
-  font-family: 'Domaine Sans', sans-serif;
-  font-size: 48px;
-
-  letter-spacing: 10pt;
-
-  padding-top: 70px;
-}
-
-.instagram > span {
-  padding-left: 50px;
-}
-
-.connect {
-  font-size: 14pt;
-  text-transform: uppercase;
-  font-family: 'Houschka Pro', sans-serif;
-
-  letter-spacing: 8px;
 }
 
 header {
