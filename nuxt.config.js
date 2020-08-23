@@ -51,11 +51,16 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/proxy',
   ],
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  }
+  },
+
+  proxy: [
+    'http://localhost:8000/api'
+  ]
 }

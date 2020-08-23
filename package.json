@@ -9,19 +9,22 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/proxy": "^2.0.1",
+    "axios": "^0.20.0",
     "dom-classes": "^1.0.0",
     "dom-create-element": "^1.0.2",
     "dom-events": "^0.1.1",
     "flickity": "^2.2.1",
     "flickity-imagesloaded": "^2.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "node-sass": "^4.14.1",
     "normalize-scss": "^7.0.1",
     "nuxt": "^2.14.0",
     "prefix": "^1.0.0",
+    "sass-loader": "^9.0.3",
     "virtual-scroll": "^1.5.2",
     "vue-match-heights": "^0.1.1",
-    "vue-resize": "^0.5.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.3"
+    "vue-resize": "^0.5.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.3"

@@ -101,16 +101,10 @@
         <div class="instagram-carousel-container">
           <div class="container">
             <div class="main-carousel">
-              <div class="carousel-cell">
-                <img src="/Instagram%201.jpg" alt="" :style="`width: 100%`" @load="matchHeight($event)">
-              </div>
-
-              <div class="carousel-cell">
-                <img src="/Instagram%202.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
-              </div>
-
-              <div class="carousel-cell">
-                <img src="/Instagram%203.jpg" alt="" :style="`height: ${igHeight}px; width: 100%`">
+              <div v-for="ig of igData" :key="ig.node.id" class="carousel-cell">
+                <img :src="ig.node.display_url" alt=""
+                     :style="`${(igHeight !== 0 ? 'height: ' + igHeight.toString() + 'px;' : '')} width: 100%`"
+                     @load="matchHeight($event)">
               </div>
             </div>
 
@@ -173,6 +167,7 @@
 import Flickity from 'flickity-imagesloaded';
 import Parallax from "../plugins/parallax";
 import {ResizeObserver} from 'vue-resize';
+import { mapState } from 'vuex';
 
 export default {
   head() {
@@ -198,6 +193,9 @@ export default {
       igHeight: 0,
     }
   },
+  computed: mapState({
+    igData: (state) => state.igData.graphql.user.edge_owner_to_timeline_media.edges
+  }),
   methods: {
     handleResize() {
       qSmooth.resize();
@@ -219,21 +217,18 @@ export default {
       if (this.igHeight === 0) {
         this.igHeight = e.target.height;
       }
+    },
+    onBackgroundScroll() {
+      let slides = document.querySelectorAll('.background-carousel .carousel-cell');
+
+        this.background.slides.forEach((slide, i) => {
+          let image = slides[i].querySelector('.background-image');
+          let x = (slide.target + this.background.x) * -1 / 3;
+          image.style.backgroundPosition = x + 'px';
+        });
     }
   },
-  mounted() {
-    let el = document.querySelector('.main-carousel');
-    let flickity = null;
-    flickity = new Flickity(el, {
-      cellAlign: 'left',
-      contain: true,
-      freeScroll: true,
-      prevNextButtons: false,
-      pageDots: false,
-      freeScrollFriction: 0.03,
-      imagesLoaded: true
-    });
-
+  async mounted() {
     let backgroundEl = document.querySelector('.background-carousel');
     this.background = new Flickity(backgroundEl, {
       accessibility: true,
@@ -252,15 +247,7 @@ export default {
 
     this.background.on('select', this.onBackgroundSelect.bind(this));
 
-    let slides = document.querySelectorAll('.background-carousel .carousel-cell');
-
-    this.background.on('scroll', () => {
-      this.background.slides.forEach((slide, i) => {
-        let image = slides[i].querySelector('.background-image');
-        let x = (slide.target + this.background.x) * -1 / 3;
-        image.style.backgroundPosition = x + 'px';
-      });
-    });
+    this.background.on('scroll', this.onBackgroundScroll);
 
     if (document.getElementsByClassName('q_smooth').length) {
       const qSmooth = new Parallax({
@@ -274,6 +261,21 @@ export default {
       qSmooth.init();
       window.qSmooth = qSmooth;
     }
+
+    await this.$store.dispatch('getIg', 'vicoerv');
+
+    let el = document.querySelector('.main-carousel');
+    let flickity = null;
+    flickity = new Flickity(el, {
+      cellAlign: 'left',
+      contain: true,
+      freeScroll: true,
+      prevNextButtons: false,
+      pageDots: false,
+      freeScrollFriction: 0.03,
+      imagesLoaded: true
+    });
+
   }
 }
 </script>
