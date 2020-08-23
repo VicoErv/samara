@@ -21,9 +21,11 @@
     </div>
 
     <div :class="`nav-menu ${(show ? 'close' : '')}`" @click="show = !show">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="text">Menu</span>
+      <div>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="text">Menu</span>
+      </div>
     </div>
   </div>
 </template>
