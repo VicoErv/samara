@@ -571,7 +571,7 @@ footer .about {
     flex-direction: column;
 
     .description {
-      padding: 100px calc(50% - 5vw) 0 0;
+      padding: 100px calc(50% - 5vw + 2px) 0 0;
     }
   }
 
@@ -581,6 +581,27 @@ footer .about {
 
   .instagram-container {
     padding-top: 200px;
+  }
+
+  .background-carousel .carousel-cell .hero-title h2 {
+    font-size: 72pt;
+    line-height: 88pt;
+  }
+
+  .connect {
+    font-size: 16pt;
+  }
+
+  .instagram {
+    padding: 60px 0 90px 0;
+
+    .logo {
+      width: 32px;
+    }
+
+    span {
+      font-size: 32pt;
+    }
   }
 }
 
