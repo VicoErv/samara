@@ -406,6 +406,19 @@ footer .about {
       }
     }
   }
+
+  .instagram {
+    padding: 30px 0 30px 0;
+
+    .logo {
+      width: 24px;
+    }
+
+    span {
+      font-size: 24pt;
+      margin-left: 30px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -479,6 +492,10 @@ footer .about {
 
   .main-carousel .carousel-cell {
     width: 27vw;
+  }
+
+  .instagram-container {
+    padding-top: 200px;
   }
 }
 
