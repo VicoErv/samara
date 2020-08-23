@@ -1,5 +1,5 @@
 <template>
-  <div class="q_smooth">
+  <div>
     <resize-observer @notify="handleResize"/>
     <header>
       <div class="background-carousel">

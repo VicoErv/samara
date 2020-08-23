@@ -1,6 +1,52 @@
 <template>
   <div>
-    <Nuxt />
+    <div :class="`menu-container ${(show ? 'active' : '')}`">
+      <nav id="main-navigation" class="nav-main">
+        <ul class="menu">
+          <li class="menu__item">
+            <a class="menu__link" href="#0">Home</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#0">About</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#0">Clients</a>
+            <ul class="submenu">
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Burger King</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Southwest Airlines</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Levi Strauss</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#0">Services</a>
+            <ul class="submenu">
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Print Design</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Web Design</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Mobile App Development</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#0">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="q_smooth">
+
+      <Nuxt/>
+    </div>
 
     <div class="nav-menu">
       <span class="line"></span>
@@ -10,7 +56,27 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      show: false
+    }
+  }
+}
+</script>
+
 <style>
+.menu-container {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
 .nav-menu {
   position: fixed;
   right: 5%;
