@@ -175,6 +175,11 @@ import Parallax from "../plugins/parallax";
 import {ResizeObserver} from 'vue-resize';
 
 export default {
+  head() {
+    return {
+      title: 'Samara Spa'
+    }
+  },
   components: {ResizeObserver},
   data() {
     return {
